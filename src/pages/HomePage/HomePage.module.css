@@ -1,0 +1,8 @@
+.homepage {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 60px;
+}

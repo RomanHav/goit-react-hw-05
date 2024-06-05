@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { getDetails } from "../../tmdbAPI";
+import css from "./MovieDetailsPage.module.css";
 
 export default function MovieDetailsPage() {
   const [data, setData] = useState([]);
   const { movieId } = useParams();
   const location = useLocation();
-  const backLink = location.state ?? "/movies";
+  const backLink = location.state ?? "/";
   useEffect(() => {
     const fetchMovieDetails = async () => {
       setData(await getDetails(movieId));
@@ -14,41 +15,52 @@ export default function MovieDetailsPage() {
     fetchMovieDetails();
   }, [movieId]);
   return (
-    <div>
-      <Link to={backLink}>Go back</Link>
-      <div>
-        <img src={`https://image.tmdb.org/t/p/w500/${data.poster_path}`} />
-        <div>
-          <div>
-            <h2>{data.title}</h2>
-            <p>{`User Score: ${Math.floor(data.vote_average) * 10}%`}</p>
+    <div className={css.detailscontainer}>
+      <Link className={css.backbutton} to={backLink}>
+        <div className={css.goback}>
+          <img src="../../../public/arrow-left2.svg" />
+          Go back
+        </div>
+      </Link>
+      <div className={css.movie}>
+        <img src={`https://image.tmdb.org/t/p/w300/${data.poster_path}`} />
+        <div className={css.description}>
+          <div className={css.descrpart}>
+            <h2 className={css.maititle}>{data.title}</h2>
+            <p className={css.about}>{`User Score: ${
+              Math.floor(data.vote_average) * 10
+            }%`}</p>
           </div>
-          <div>
-            <h3>Overview</h3>
-            <p>{data.overview}</p>
+          <div className={css.descrpart}>
+            <h3 className={css.subtitles}>Overview</h3>
+            <p className={css.aboutoverview}>{data.overview}</p>
           </div>
-          <div>
-            <h3>Genres</h3>
-            <p>
+          <div className={css.descrpart}>
+            <h3 className={css.subtitles}>Genres</h3>
+            <p className={css.about}>
               {data.genres &&
                 data.genres.map((genre) => {
-                  return `${genre.name} `;
+                  return `${genre.name}, `;
                 })}
             </p>
           </div>
-          <div>
-            <h3>Additional information</h3>
-            <ul>
-              <li>
-                <Link to="cast">Cast</Link>
-              </li>
-              <li>
-                <Link to="reviews">Reviews</Link>
-              </li>
-              <Outlet />
-            </ul>
-          </div>
         </div>
+      </div>
+      <div>
+        <h3 className={css.addsubtitle}>Additional information</h3>
+        <ul className={css.aditional}>
+          <li className={css.aditionalpart}>
+            <Link className={css.links} to="cast" state={location.state}>
+              Cast
+            </Link>
+          </li>
+          <li>
+            <Link className={css.links} to="reviews" state={location.state}>
+              Reviews
+            </Link>
+          </li>
+        </ul>
+        <Outlet />
       </div>
     </div>
   );

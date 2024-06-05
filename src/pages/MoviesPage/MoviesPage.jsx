@@ -3,6 +3,7 @@ import MovieList from "../../components/MovieList/MovieList";
 import { getMoviesBySearch } from "../../tmdbAPI";
 import toast, { Toaster } from "react-hot-toast";
 import { useSearchParams } from "react-router-dom";
+import css from "./MoviesPage.module.css";
 
 export default function MoviesPage() {
   const [data, setData] = useState([]);
@@ -31,7 +32,7 @@ export default function MoviesPage() {
     }
 
     setSearchParams({ query: searchQuery });
-    setQuery(""); // Clear the input field
+    setQuery("");
   };
 
   const handleChange = (evt) => {
@@ -39,14 +40,18 @@ export default function MoviesPage() {
   };
 
   return (
-    <>
-      <form onSubmit={handleClick}>
+    <div className={css.formcontainer}>
+      <form className={css.form} onSubmit={handleClick}>
         <input
+          className={css.input}
           name="search"
+          placeholder="Enter the name of the movie"
           onChange={(e) => handleChange(e.target.value)}
           value={query}
         />
-        <button type="submit">Search</button>
+        <button className={css.button} type="submit">
+          Search
+        </button>
       </form>
       <div>
         <MovieList movies={data} />
@@ -54,6 +59,6 @@ export default function MoviesPage() {
       <Toaster
         toastOptions={{ style: { background: "red", color: "white" } }}
       />
-    </>
+    </div>
   );
 }

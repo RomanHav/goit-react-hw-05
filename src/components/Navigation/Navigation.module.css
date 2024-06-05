@@ -1,0 +1,19 @@
+.navigation {
+  display: flex;
+  gap: 40px;
+  border-bottom: 1px solid #fff;
+  padding: 30px 90px;
+  box-shadow: 0 -16px 47px #fff;
+  margin-bottom: 30px;
+}
+.home {
+  font-size: 20px;
+  color: #fff;
+}
+.movies {
+  font-size: 20px;
+  color: #fff;
+}
+.isActive {
+  color: #096495;
+}
