@@ -25,7 +25,7 @@ export default function MovieCast() {
                   className={css.castimage}
                   src={`${
                     actor.profile_path !== null
-                      ? `https://image.tmdb.org/t/p/w200/${actor.profile_path}`
+                      ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
                       : "../../../public/No-Image.png"
                   }`}
                 />

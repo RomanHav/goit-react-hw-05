@@ -37,6 +37,7 @@
 
 .movie {
   display: flex;
+  align-items: center;
   gap: 80px;
 }
 
@@ -53,25 +54,25 @@
 }
 
 .maititle {
-  font-size: 48px;
+  font-size: 42px;
 }
 
 .subtitles {
-  font-size: 28px;
+  font-size: 22px;
 }
 
 .addsubtitle {
-  font-size: 28px;
+  font-size: 22px;
   margin-bottom: 20px;
 }
 
 .aboutoverview {
   width: 800px;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .about {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .aditional {

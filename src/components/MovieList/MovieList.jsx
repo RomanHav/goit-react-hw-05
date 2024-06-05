@@ -18,7 +18,7 @@ export default function MovieList({ movies, isFromHome = false }) {
                   <img
                     src={`${
                       movie.poster_path !== null
-                        ? `https://image.tmdb.org/t/p/w200/${movie.poster_path}`
+                        ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
                         : "../../../public/no-imageMovie.jpg"
                     }`}
                   />
