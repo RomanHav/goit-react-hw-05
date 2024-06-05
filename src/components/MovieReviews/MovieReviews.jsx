@@ -21,10 +21,7 @@ export default function MovieReviews() {
             <li className={css.reviewpart} key={review.id}>
               <div className={css.reviewabout}>
                 <div className={css.authorcont}>
-                  <img
-                    className={css.imgauthor}
-                    src="../../../public/user-tie.svg"
-                  />
+                  <img className={css.imgauthor} src="/user-tie.svg" />
                   <h3 className={css.author}>{review.author}</h3>
                 </div>
                 <p className={css.content}>{review.content}</p>

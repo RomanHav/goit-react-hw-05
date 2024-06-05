@@ -19,7 +19,7 @@ export default function MovieList({ movies, isFromHome = false }) {
                     src={`${
                       movie.poster_path !== null
                         ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-                        : "../../../public/no-imageMovie.jpg"
+                        : "/no-imageMovie.jpg"
                     }`}
                   />
                   {movie.title}

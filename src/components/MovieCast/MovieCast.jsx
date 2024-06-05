@@ -26,7 +26,7 @@ export default function MovieCast() {
                   src={`${
                     actor.profile_path !== null
                       ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}`
-                      : "../../../public/No-Image.png"
+                      : "/No-Image.png"
                   }`}
                 />
                 <p className={css.name}>{actor.original_name}</p>
