@@ -18,7 +18,7 @@ export default function MovieDetailsPage() {
     <div className={css.detailscontainer}>
       <Link className={css.backbutton} to={backLink}>
         <div className={css.goback}>
-          <img src="../../../public/arrow-left2.svg" />
+          <img src="./arrow-left2.svg" />
           Go back
         </div>
       </Link>
